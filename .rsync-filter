@@ -1,0 +1,17 @@
+- /dl/
+- /.config
+- /.config.old
+- /bin/
+- /build_dir/
+- /staging_dir/
+- /tmp/
+- /logs/
+- /feeds/
+- /overlay/
+- /package/feeds/
+- /package/openwrt-packages/
+- key-build*
+- git-src
+- /scripts/config/conf
+- /scripts/config/mconf
+
