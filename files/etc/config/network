@@ -1,0 +1,24 @@
+
+config interface 'loopback'
+	option ifname 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config interface 'lan'
+	option ifname 'eth1'
+	option proto 'static'
+	option netmask '255.255.255.0'
+	option ipaddr '192.168.8.1'
+	option macaddr '00:c0:7a:61:eb:12'
+
+config interface 'wwan'
+	option proto 'dhcp'
+
+config interface 'tor'
+	option proto 'static'
+	option ifname 'eth0'
+	option ipaddr '10.0.0.1'
+	option netmask '255.0.0.0'
+	option macaddr '08:eb:bc:1b:2a:be'
+

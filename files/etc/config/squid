@@ -1,0 +1,7 @@
+
+config squid 'squid'
+	option config_file '/etc/squid/squid.conf'
+	option coredump_dir '/tmp/squid'
+	option http_port '8081'
+	option visible_hostname 'OnionWall'
+

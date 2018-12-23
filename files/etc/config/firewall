@@ -1,0 +1,64 @@
+
+config defaults
+	option input 'ACCEPT'
+	option output 'ACCEPT'
+	option forward 'DROP'
+
+config zone
+	option name 'lan'
+	option input 'ACCEPT'
+	option output 'ACCEPT'
+	option network 'lan'
+	option forward 'DROP'
+
+config zone
+	option name 'wan'
+	option forward 'DROP'
+	option input 'DROP'
+	option network 'wan wan6 wwan'
+	option output 'REJECT'
+
+config rule
+	option name 'Allow-DHCP-Renew'
+	option src 'wan'
+	option proto 'udp'
+	option dest_port '68'
+	option target 'ACCEPT'
+	option family 'ipv4'
+	option src_port '67'
+	option enabled '0'
+
+config rule
+	option name 'Allow-Ping'
+	option proto 'icmp'
+	option icmp_type 'echo-request'
+	option family 'ipv4'
+	option target 'ACCEPT'
+	option src 'tor'
+
+config include
+	option path '/etc/firewall.user'
+
+config zone
+	option name 'tor'
+	option output 'ACCEPT'
+	option network 'tor'
+	option forward 'DROP'
+	option input 'DROP'
+
+config rule
+	option target 'ACCEPT'
+	option proto 'tcp'
+	option name 'Allow-tor'
+	option src 'tor'
+	option family 'ipv4'
+	option dest_port '9050'
+
+config rule
+	option target 'ACCEPT'
+	option proto 'udp'
+	option name 'Allow-tor-dns'
+	option src 'tor'
+	option family 'ipv4'
+	option dest_port '53'
+

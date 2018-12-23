@@ -1,0 +1,29 @@
+
+config system
+	option hostname 'OnionWall'
+
+config timeserver 'ntp'
+	option enable_server '0'
+
+config led
+	option default '0'
+	option name 'wlan'
+	option sysfs 'gl-ar150:wlan'
+	option trigger 'netdev'
+	option dev 'wlan0'
+	option mode 'link tx rx'
+
+config led
+	option sysfs 'gl-ar150:lan'
+	option name 'lan'
+	option trigger 'netdev'
+	option default '0'
+	option mode 'link tx rx'
+	option dev 'eth0'
+
+config led
+	option name 'wan'
+	option sysfs 'gl-ar150:wan'
+	option default '0'
+	option trigger 'heartbeat'
+
