@@ -1,0 +1,42 @@
+image: ubuntu:16.04
+
+before_script:
+  - export DEBIAN_FRONTEND=noninteractive
+  - apt-get update -q
+  - apt-get install -qq --no-install-recommends
+      build-essential
+      libncurses5-dev
+      unzip
+      gettext
+      bison
+      zlib1g-dev
+      gawk
+      wget
+      python
+      git
+      file
+      curl
+      ca-certificates
+  - mkdir -p ccache
+  - export CCACHE_DIR=$PWD/ccache
+  - export FORCE_UNSAFE_CONFIGURE=1
+
+cache:
+  key: "$CI_JOB_NAME-$CI_COMMIT_REF_SLUG"
+  paths:
+    - ccache/
+    - dl/
+
+.build:
+  stage: build
+  script:
+    - ./scripts/feeds update -a
+    - ./scripts/feeds install -a
+    - cp $CI_JOB_NAME.cfg .config
+    - make defconfig world V=w
+  artifacts:
+    paths:
+      - bin/
+
+gl-ar150:
+  extends: .build
