@@ -19,11 +19,13 @@ config led
 	option trigger 'netdev'
 	option default '0'
 	option mode 'link tx rx'
-	option dev 'eth0'
+	option dev 'eth1'
 
 config led
 	option name 'wan'
 	option sysfs 'gl-ar150:wan'
 	option default '0'
-	option trigger 'heartbeat'
+	option trigger 'netdev'
+	option mode 'link tx rx'
+	option dev 'eth0'
 
