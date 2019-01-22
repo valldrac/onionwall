@@ -9,7 +9,7 @@ It minimizes the risk of being caught in case an attacker gets into your compute
 
 OnionWall is the hardware alternative to the operating systems focused on anonymity like [Tails](https://tails.boum.org/) or [Whonix](https://www.whonix.org/).
 
-The firmware is based on [OpenWrt](https://openwrt.org/) LEDE 17.01.6.
+The firmware is based on latest [OpenWrt](https://openwrt.org/) LEDE 17.01.6.
 
 ![Overview](docs/images/overview.png)
 
@@ -21,6 +21,12 @@ OnionWall provides 3 network interfaces:
 * **LAN**: Ethernet network for administration purposes with DHCP server. The Web Admin GUI is https://192.168.8.1 default login: **_root_** password: **_goodlife_**. It also has a HTTP proxy listening on port **8081** with unrestricted Internet access, useful for logging into captive portals.
 * **WWAN**: Wireless network with DHCP client. Typically connected to your Internet uplink.
 
+## Compatible Devices
+
+| Device Type | Brand | Model | CPU MHz | CPU Cores | Flash MB | RAM MB | WLAN | Firmware |
+|-|-|-|-|-|-|-|-|-|
+| Wi-Fi Router | GL.iNet | [GL-AR150](http://www.gl-inet.com/ar150/) | 400 | 1 | 16 | 64 | b/g/n | [Download](https://gitlab.com/valldrac/onionwall/-/jobs/artifacts/master/browse/bin/targets/ar71xx/generic/?job=gl-ar150) |
+
 ## Quick Start Guide
 
 * Purchase one of the [compatibles devices](#compatible-devices).
@@ -31,21 +37,19 @@ OnionWall provides 3 network interfaces:
 * [Configure Tor Browser](https://gitlab.com/valldrac/onionwall/wikis/Configure-Tor-Browser).
 * Enjoy!
 
-## Compatible Devices
-
-| Device Type | Brand | Model | CPU MHz | CPU Cores | Flash MB | RAM MB | WLAN | Firmware |
-|-|-|-|-|-|-|-|-|-|
-| Wi-Fi Router | GL.iNet | [GL-AR150](http://www.gl-inet.com/ar150/) | 400 | 1 | 16 | 64 | b/g/n | [Download](https://gitlab.com/valldrac/onionwall/-/jobs/artifacts/master/browse/bin/targets/ar71xx/generic/?job=gl-ar150) |
-
 ## Development
 
-If you are interested in developing  or **building your own firmware**, check out the vagrant setup https://gitlab.com/valldrac/onionwall-vagrant. Your contributions are always welcome!
+If you are interested in developing  or **building your own firmware**, try out the vagrant setup https://gitlab.com/valldrac/onionwall-vagrant. Your contributions are always welcome!
+
+To make it easier, you can check the changes made versus the stock LEDE firmware: https://gitlab.com/valldrac/onionwall/compare/lede-17.01.6...master
+
+For more detailed information please visit the [Wiki](https://gitlab.com/valldrac/onionwall/wikis).
 
 ## Security
 
 To ensure security, OnionWall completely disables packet forwarding and applies strict set of firewall rules to each zone. TorPort is the only open port in the TOR network, so administration must be performed on a separate channel from the proxied computers.
 
-It encourages the use of a dedicated PC without Wi-Fi to avoid malware from scanning nearby wireless networks and geolocating your position.
+It encourages the use of a dedicated PC without Wi-Fi to prevent malware from scanning nearby wireless networks and geolocating your position.
 
 OnionWall is not a transparent proxy for [good reasons](https://trac.torproject.org/projects/tor/wiki/doc/TransparentProxy#WARNING).
 
