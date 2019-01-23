@@ -33,6 +33,7 @@ cache:
     - ./scripts/feeds update -a
     - ./scripts/feeds install -a
     - cp $CI_JOB_NAME.cfg .config
+    - echo CONFIG_VERSION_NUMBER=\"$CI_COMMIT_REF_SLUG\" >> .config
     - make defconfig world V=w
   artifacts:
     paths:
