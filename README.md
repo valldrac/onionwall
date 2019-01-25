@@ -1,8 +1,6 @@
 OnionWall
 =========
 
-[![pipeline status](https://gitlab.com/valldrac/onionwall/badges/master/pipeline.svg)](https://gitlab.com/valldrac/onionwall/commits/master)
-
 Portable router to provide anonymous access to Internet via Tor.
 
 It minimizes the risk of being caught in case an attacker gets into your computer while you are browsing anonymously with [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en). It also reduces the potential to make fatal mistakes; it enforces all Internet traffic to be sent over the Tor Network.
@@ -21,21 +19,21 @@ OnionWall provides 3 network interfaces:
 * **LAN**: Ethernet network for administration purposes with DHCP server. The Web Admin GUI is https://192.168.8.1 default login: **_root_** password: **_goodlife_**. It also has a HTTP proxy listening on port **8081** with unrestricted Internet access, useful for logging into captive portals.
 * **WWAN**: Wireless network with DHCP client. Typically connected to your Internet uplink.
 
-## Compatible Devices
-
-| Device Type | Brand | Model | CPU MHz | CPU Cores | Flash MB | RAM MB | WLAN | Firmware |
-|-|-|-|-|-|-|-|-|-|
-| Wi-Fi Router | GL.iNet | [GL-AR150](http://www.gl-inet.com/ar150/) | 400 | 1 | 16 | 64 | b/g/n | [Download](https://gitlab.com/valldrac/onionwall/-/jobs/artifacts/master/browse/bin/targets/ar71xx/generic/?job=gl-ar150) |
-
 ## Quick Start Guide
 
 * Purchase one of the [compatibles devices](#compatible-devices).
-* Download the latest firmware and [flash it](https://gitlab.com/valldrac/onionwall/wikis/Flashing) onto the router.
+* Download the [latest firmware](https://gitlab.com/valldrac/onionwall/releases) and [flash it](https://gitlab.com/valldrac/onionwall/wikis/Flashing) onto the router.
 * Connect your laptop to the LAN network and [configure the Internet uplink](https://gitlab.com/valldrac/onionwall/wikis/Setup-Wireless).
 * Grab a dedicated laptop and remove or disable all radio devices (Wi-Fi and Bluetooth).
 * Connect it to the TOR network and boot your preferred secure Linux distro.
 * [Configure Tor Browser](https://gitlab.com/valldrac/onionwall/wikis/Configure-Tor-Browser).
 * Enjoy!
+
+## Compatible Devices
+
+| Device Type | Brand | Model | CPU MHz | CPU Cores | Flash MB | RAM MB | WLAN 2.4GHz | WLAN 5.0GHz | Snapshot Build |
+|-------------|-------|-------|---------|-----------|----------|--------|-------------|-------------|----------------|
+| Wi-Fi Router | GL.iNet | [GL-AR150](http://www.gl-inet.com/ar150/) | 400 | 1 | 16 | 64 | b/g/n | - | [Browse](https://gitlab.com/valldrac/onionwall/-/jobs/artifacts/master/browse/?job=gl-ar150) |
 
 ## Development
 
