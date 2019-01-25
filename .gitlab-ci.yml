@@ -20,6 +20,8 @@ before_script:
   - mkdir -p ccache
   - export CCACHE_DIR=$PWD/ccache
   - export FORCE_UNSAFE_CONFIGURE=1
+  - export DATE=$(date -u +%Y%m%d%H%M%S)
+  - export VERSION=${CI_COMMIT_TAG:-v0.0.0-$DATE-$CI_COMMIT_SHORT_SHA}
 
 cache:
   key: "$CI_JOB_NAME-$CI_COMMIT_REF_SLUG"
@@ -33,7 +35,7 @@ cache:
     - ./scripts/feeds update -a
     - ./scripts/feeds install -a
     - cp $CI_JOB_NAME.cfg .config
-    - echo CONFIG_VERSION_NUMBER=\"$CI_COMMIT_REF_SLUG\" >> .config
+    - echo CONFIG_VERSION_NUMBER=\"$VERSION\" >> .config
     - make defconfig world V=w
   artifacts:
     paths:
